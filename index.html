@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form data convert to Json</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+
+
+    <style>
+        .formBox{
+            padding: 0.5rem 2rem;
+        }
+         .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      header{
+        height: 50px;
+        background-color: #FFFFFF;
+      }
+    </style>
+     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+
+            $( "#target" ).submit(function( event ) {
+                $('input[name="q1"]:checked').each(function() {
+                    console.log(this.value);
+                });
+
+                return false;
+            });
+
+        });
+    </script>
+</head>
+<body class="bg-light">
+
+    <header class="site-header  py-1 m-3">
+  <nav class="container ">
+    <div class=" text-center">
+         <h4> JSON Format </h4>
+        <!--  <a href="/add_question" class="btn btn-primary">Add Question</a> -->
+       </div>
+  </nav>
+</header>
+
+   <div class="container">
+     <main>
+       <div class=" text-center">
+         <h2></h2>
+        <!--  <a href="/add_question" class="btn btn-primary">Add Question</a> -->
+       </div>
+
+    <div class="row g-3">
+      <div class="col-md-5 col-lg-6 order-md-last" style="background-color: #E5E5E5">
+        <p class=" justify-content-between">
+          <span class="text-muted">JSON</span>
+           <div id="msg">
+            <pre></pre>
+        </div>
+         <div id="msg2">
+            <pre></pre>
+        </div>
+        <div id="msg3">
+            <pre></pre>
+        </div>
+        </p>
+      </div>
+       <div class="col-md-5 col-lg-6">
+        <h4 class="mb-3">Question</h4>
+
+        <form>
+          <div class="row g-3">
+         
+            <div class="col-sm-10">
+              <label for="question" class="form-label">What is Your Level in English?</label>
+
+                   <input type="hidden"  id="type" value="checkbox">
+                   <input type="hidden"  id="name" value="q1">
+                   <input type="hidden"  id="title" value="What is Your Level in English?">
+                   <input type="hidden"  id="q1o1" value="q1o1">
+                   <input type="hidden"  id="q1o2" value="q1o2">
+                   <input type="hidden"  id="q1o3" value="q1o3">
+
+                   <input type="hidden"  id="q1L1" value="Native or bilingual">
+                   <input type="hidden"  id="q1L2" value="Full professional profesciency">
+                   <input type="hidden"  id="q1L3" value="Beginner">
+
+
+
+                <div class="form-check">
+                   <input type="checkbox" name="q1"  id="q11o1" value="q1o1" class="form-check-input">
+                   <label class="form-check-label" for="same-address">Native or bilingual</label>
+                </div>
+
+                 <div class="form-check">
+                    <input type="checkbox" name="q1"  id="q11o2" value="q1o2" class="form-check-input">
+                      <label class="form-check-label" for="save-info">Full professional profesciency</label>
+                  </div>
+
+                   <div class="form-check">
+                    <input type="checkbox" name="q1" id="q11o3" value="q1o3" class="form-check-input">
+                      <label class="form-check-label" for="save-info">Beginner</label>
+                  </div>
+            </div>
+       
+
+          <hr class="my-4">
+        
+          <Label class="mb-1">What is your Level in C++?</label>
+          <div class="my-3">
+
+                   <input type="hidden"  id="type2" value="radio">
+                   <input type="hidden"  id="name2" value="q2">
+                   <input type="hidden"  id="title2" value="What is your Level in C++?">
+                   <input type="hidden"  id="q2o1" value="q2o1">
+                   <input type="hidden"  id="q2o2" value="q2o2">
+                   <input type="hidden"  id="q2o3" value="q2o3">
+
+                   <input type="hidden"  id="q2L1" value="Expert">
+                   <input type="hidden"  id="q2L2" value="Advanced">
+                   <input type="hidden"  id="q2L3" value="Beginner">
+
+            <div class="form-check">
+              <input   type="radio" name="q2" value="q2o1" class="form-check-input" checked>
+              <label class="form-check-label" for="credit">Expert</label>
+            </div>
+
+            <div class="form-check">
+              <input  type="radio"  name="q2" value="q2o2" class="form-check-input" >
+              <label class="form-check-label" for="debit">Advanced</label>
+            </div>
+
+            <div class="form-check">
+              <input   type="radio"  name="q2" value="q2o3" class="form-check-input" >
+              <label class="form-check-label" for="paypal">Beginner</label>
+            </div>
+          </div>
+        
+
+          <hr class="my-4">
+
+        
+             <div class="col-md-10">
+              <label for="question" class="form-label">What is your Education Level?</label>
+
+                  <input type="hidden"  id="type3" value="dropdown">
+                   <input type="hidden"  id="name3" value="q3">
+                   <input type="hidden"  id="title3" value="What is your Education Level?">
+                   <input type="hidden"  id="q3o1" value="q3o1">
+                   <input type="hidden"  id="q3o2" value="q3o2">
+                   <input type="hidden"  id="q3o3" value="q3o3">
+
+                   <input type="hidden"  id="q3L1" value="Post Graduate degree">
+                   <input type="hidden"  id="q3L2" value="Graduate degree">
+                   <input type="hidden"  id="q3L3" value="Under graduate degree">
+              
+               <select class="form-select" id="q3" name="">
+                <option value="">Choose...</option>
+                <option name="q3" id="q33o1" value="q3o1" checked>Post Graduate degree</option>
+                <option name="q3" id="q33o1" value="q3o2">Graduate degree</option>
+                <option name="q3" id="q33o1" value="q3o3">Under graduate degree</option>
+              </select>
+             
+            </div>
+            <hr class="my-4">
+             <div class="formBox">
+            <button id="btn">Click to Add</button>
+        </div>
+         
+<!-- <button class="btn btn-primary btn-lg" id="btn">Submit</button> -->
+          </div>
+
+          
+
+          
+        </form>
+      </div>
+    </div>
+  </main>
+
+
+
+
+
+   <!--  <form>
+        <div class="formBox">
+            <label for="title">Movie</label>
+            <input type="text" id="title" placeholder="Title"/>
+        </div>
+        <div class="formBox">
+            <label for="yr">Year</label>
+            <input type="number" id="yr" placeholder="Year"/>
+        </div>
+        <div class="formBox">
+            <button id="btn">Click to Add</button>
+        </div>
+        <div id="msg">
+            <pre></pre>
+        </div>
+    </form> -->
+
+
+    <script>
+        let questions = [];
+        let questions2 = [];
+        let questions3 = [];
+        // example {id:1592304983049, title: 'Deadpool', year: 2015}
+ // ==========================================================================================
+        const addQuestion = (ev)=>{
+  
+        var favorite = [];
+            $.each($("input[name='q1']:checked"), function(){
+                favorite.push($(this).val());
+            });
+             
+
+            ev.preventDefault();  //to stop the form submitting
+           var selected = document.querySelector('[name="q1"]:checked');
+            var quantity = 1;
+            let question = {
+                type:document.getElementById('type').value,
+                name: document.getElementById('name').value,
+                // title: document.getElementById('q1o1').value,
+                title:document.getElementById('title').value,
+                optionIds:{
+                     q1o1:document.getElementById('q1o1').value,
+                     q1o2:document.getElementById('q1o2').value,
+                     q1o3:document.getElementById('q1o3').value,
+                   },
+                   optionValues:{
+                     q1o1:document.getElementById('q1o1').value,
+                     q1o2:document.getElementById('q1o2').value,
+                     q1o3:document.getElementById('q1o3').value,
+                   },
+                optionLabels:{
+                     q1o1:document.getElementById('q1L1').value,
+                     q1o2:document.getElementById('q1L2').value,
+                     q1o3:document.getElementById('q1L3').value,
+                   },
+                selectedIds:{
+                     // q1o1:document.getElementById('q11o1').value,
+                    // q1o2:document.getElementById('q11o2').value,
+                    // q1o3:document.getElementById('q11o3').value,
+                     // q1:selected.value 
+                     q1:favorite.join(", ")
+                },
+            }
+            questions.push(question);
+            console.log(question)
+            // document.forms[0].reset(); // to clear the form for the next entries
+            //document.querySelector('form').reset();
+
+            //for display purposes only
+            console.warn('added' , {questions} );
+            let pre = document.querySelector('#msg pre');
+            pre.textContent = '\n' + JSON.stringify(questions, '\t', 2);
+
+            //saving to localStorage
+            localStorage.setItem('MyMovieList', JSON.stringify(questions) );
+        }
+  // ==========================================================================================
+        const addQuestion2 = (ev)=>{
+            ev.preventDefault();  //to stop the form submitting
+           var selected2 = document.querySelector('input[name = q2]:checked').value;
+            var quantity = 1;
+            let question2 = {
+                type:document.getElementById('type2').value,
+                name: document.getElementById('name2').value,
+                // title: document.getElementById('q1o1').value,
+                title:document.getElementById('title2').value,
+                optionIds:{
+                     q2o1:document.getElementById('q2o1').value,
+                     q2o2:document.getElementById('q2o2').value,
+                     q2o3:document.getElementById('q2o3').value,
+                   },
+                   optionValues:{
+                     q2o1:document.getElementById('q2o1').value,
+                     q2o2:document.getElementById('q2o2').value,
+                     q2o3:document.getElementById('q2o3').value,
+                   },
+                optionLabels:{
+                     q2o1:document.getElementById('q2L1').value,
+                     q2o2:document.getElementById('q2L2').value,
+                     q2o3:document.getElementById('q2L3').value,
+                   },
+                selectedIds:{
+                    // q1o1:document.getElementById('q11o1').value,
+                    // q1o2:document.getElementById('q11o2').value,
+                    // q1o3:document.getElementById('q11o3').value,
+                     q2:selected2 
+
+                },
+            }
+            questions2.push(question2);
+            console.log(question2)
+            // document.forms[0].reset(); // to clear the form for the next entries
+            //document.querySelector('form').reset();
+
+            //for display purposes only
+            console.warn('added' , {questions2} );
+            let pre = document.querySelector('#msg2 pre');
+            pre.textContent = '\n' + JSON.stringify(questions2, '\t', 2);
+
+            //saving to localStorage
+            localStorage.setItem('MyMovieList', JSON.stringify(questions2) );
+        }
+ // ==========================================================================================  
+       const addQuestion3 = (ev)=>{
+            ev.preventDefault();  //to stop the form submitting
+           // var selected3 = document.querySelector('input[name = q3]:checked').value;
+             var urlmenu = document.getElementById( 'q3' );
+            var selectedOption =  urlmenu.options[ urlmenu.selectedIndex ].value;
+
+            var quantity = 1;
+            let question3 = {
+                type:document.getElementById('type3').value,
+                name: document.getElementById('name3').value,
+                // title: document.getElementById('q1o1').value,
+                title:document.getElementById('title3').value,
+                optionIds:{
+                     q3o1:document.getElementById('q3o1').value,
+                     q3o2:document.getElementById('q3o2').value,
+                     q3o3:document.getElementById('q3o3').value,
+                   },
+                   optionValues:{
+                     q3o1:document.getElementById('q3o1').value,
+                     q3o2:document.getElementById('q3o2').value,
+                     q3o3:document.getElementById('q3o3').value,
+                   },
+                optionLabels:{
+                     q3o1:document.getElementById('q3L1').value,
+                     q3o2:document.getElementById('q3L2').value,
+                     q3o3:document.getElementById('q3L3').value,
+                   },
+                selectedIds:{
+                    // q3o1:document.getElementById('q33o1').value,
+                    // q3o2:document.getElementById('q33o2').value,
+                    // q3o3:document.getElementById('q33o3').value,
+                     q3:selectedOption
+
+                },
+            }
+            questions3.push(question3);
+            console.log(question3)
+            // document.forms[0].reset(); // to clear the form for the next entries
+            //document.querySelector('form').reset();
+
+            //for display purposes only
+            console.warn('added' , {questions3} );
+            let pre = document.querySelector('#msg3 pre');
+            pre.textContent = '\n' + JSON.stringify(questions3, '\t', 2);
+
+            //saving to localStorage
+            localStorage.setItem('MyMovieList', JSON.stringify(questions3) );
+        }
+ // ==========================================================================================       
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', addQuestion);
+        });
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', addQuestion2);
+        });
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', addQuestion3);
+        });
+    </script>
+
+ <!-- <script>
+        let movies = [];
+        // example {id:1592304983049, title: 'Deadpool', year: 2015}
+        const addMovie = (ev)=>{
+            ev.preventDefault();  //to stop the form submitting
+            let movie = {
+                id: Date.now(),
+                title: document.getElementById('title').value,
+                year: document.getElementById('yr').value
+            }
+            movies.push(movie);
+            document.forms[0].reset(); // to clear the form for the next entries
+            //document.querySelector('form').reset();
+
+            //for display purposes only
+            console.warn('added' , {movies} );
+            let pre = document.querySelector('#msg pre');
+            pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
+
+            //saving to localStorage
+            localStorage.setItem('MyMovieList', JSON.stringify(movies) );
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', addMovie);
+        });
+    </script> -->
+</body>
+</html>
